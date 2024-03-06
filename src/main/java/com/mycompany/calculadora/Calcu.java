@@ -34,6 +34,7 @@ public class Calcu extends javax.swing.JFrame {
         BtnTres = new javax.swing.JButton();
         BtnIgual = new javax.swing.JButton();
         BtnCero = new javax.swing.JButton();
+        btnPuntoDecimal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,6 +158,14 @@ public class Calcu extends javax.swing.JFrame {
             }
         });
 
+        btnPuntoDecimal.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        btnPuntoDecimal.setText(".");
+        btnPuntoDecimal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPuntoDecimalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -194,10 +203,12 @@ public class Calcu extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(BtnUno, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BtnDos, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BtnTres, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(BtnCero, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(BtnDos, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BtnCero, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BtnTres, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                            .addComponent(btnPuntoDecimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BtnIgual, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -234,9 +245,11 @@ public class Calcu extends javax.swing.JFrame {
                             .addComponent(BtnDos, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BtnTres, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnCero, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BtnCero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnPuntoDecimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(BtnIgual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -247,7 +260,7 @@ public class Calcu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -337,7 +350,7 @@ public class Calcu extends javax.swing.JFrame {
     //funcion que realiza resta
     private void BtnRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRestaActionPerformed
         // TODO add your handling code here:
-         num1=Double.parseDouble(Pantalla.getText());
+        num1=Double.parseDouble(Pantalla.getText());
         signo="-";
         Pantalla.setText("");
     }//GEN-LAST:event_BtnRestaActionPerformed
@@ -347,26 +360,57 @@ public class Calcu extends javax.swing.JFrame {
         
         //declaracion del segundo numero
         num2=Double.parseDouble(Pantalla.getText());
+        double resultado, redondeo;
         
         //Realizamos esta condicion para definir la operacion que el usuario selecciono
         switch(signo){
             case "+":
                 Pantalla.setText("");
-                Pantalla.setText(Double.toString(num1+num2));
+                resultado = num1 + num2;
+                redondeo = Math.round(resultado * 100.0) / 100.0;
+                
+                Pantalla.setText(Double.toString(redondeo));
                 break;
                 
             case "-":
-                Pantalla.setText(Double.toString(num1-num2));
+                resultado = num1 - num2;
+                redondeo = Math.round(resultado * 100.0) / 100.0;
+                
+                Pantalla.setText(Double.toString(redondeo));
                 break;
                 
             case "*":
-                Pantalla.setText(Double.toString(num1*num2));
+                resultado = num1 * num2;
+                redondeo = Math.round(resultado * 100.0) / 100.0;
+                
+                Pantalla.setText(Double.toString(redondeo));
                 break;
             case "/":
-                Pantalla.setText(Double.toString(num1/num2));
+                resultado = num1 / num2;
+                redondeo = Math.round(resultado * 100.0) / 100.0;
+                
+                Pantalla.setText(Double.toString(redondeo));
                 break;
         }
     }//GEN-LAST:event_BtnIgualActionPerformed
+    
+    //Funcion para boton del punto decimal
+    private void btnPuntoDecimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntoDecimalActionPerformed
+        //Pantalla.setText(Pantalla.getText()+".");
+        
+        String cadena;
+        cadena = Pantalla.getText();
+        
+        if (cadena.length() <= 0){
+            Pantalla.setText("0.");
+        }else{
+            if (!ExistePunto(Pantalla.getText())){
+                Pantalla.setText(Pantalla.getText() + ".");
+            }
+        }
+        
+        
+    }//GEN-LAST:event_btnPuntoDecimalActionPerformed
 
     
 
@@ -388,6 +432,25 @@ public class Calcu extends javax.swing.JFrame {
     private javax.swing.JButton BtnTres;
     private javax.swing.JButton BtnUno;
     private javax.swing.JLabel Pantalla;
+    private javax.swing.JButton btnPuntoDecimal;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    
+    //Metodo que nos permite validar que no se repita el punto decimal
+    public static boolean ExistePunto(String cadena) {
+        boolean resultado;
+        resultado = false;
+        
+        for (int i=0; i<cadena.length(); i++){
+            if (cadena.substring(i, i+1).equals(".")){
+                resultado = true;
+                break;
+            }
+        }
+        
+        return resultado;
+    }
+    
+    
 }
