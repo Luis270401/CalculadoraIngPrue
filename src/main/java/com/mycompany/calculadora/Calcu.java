@@ -1,12 +1,12 @@
-
 package com.mycompany.calculadora;
 
 public class Calcu extends javax.swing.JFrame {
+
     //declaracion de variables (numeros a sumar )
-    double num1,num2;
+    double num1, num2;
     double memoria = 0;
     String signo; //Variable para el signo
-    
+
     //Constructor
     public Calcu() {
         initComponents();
@@ -52,7 +52,7 @@ public class Calcu extends javax.swing.JFrame {
         Pantalla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
         Pantalla.setOpaque(true);
 
-        BtnLimpiar.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        BtnLimpiar.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         BtnLimpiar.setText("C");
         BtnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -329,153 +329,152 @@ public class Calcu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     //funcion para limpiar la pantalla
     private void BtnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarActionPerformed
         // TODO add your handling code here:
         Pantalla.setText("");
     }//GEN-LAST:event_BtnLimpiarActionPerformed
-    
+
     //funcion que realiza division 
     private void BtnDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDivisionActionPerformed
         // TODO add your handling code here:
-        num1=Double.parseDouble(Pantalla.getText());
-        signo="/";
+        num1 = Double.parseDouble(Pantalla.getText());
+        signo = "/";
+        
+        Pantalla.setText("/");
         Pantalla.setText("");
     }//GEN-LAST:event_BtnDivisionActionPerformed
-    
+
     //funcion que realiza suma
     private void BtnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSumaActionPerformed
         // TODO add your handling code here:
-        num1=Double.parseDouble(Pantalla.getText());
-        signo="+";
+        num1 = Double.parseDouble(Pantalla.getText());
+        signo = "+";
         //Pantalla.setText("");
         Pantalla.setText("+");
     }//GEN-LAST:event_BtnSumaActionPerformed
 
     private void BtnCeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCeroActionPerformed
-        // TODO add your handling code here:
-        Pantalla.setText(Pantalla.getText()+"0");
+        //Mandamos llamar al la funcion agregarDigito 
+        agregarDigito("0");
     }//GEN-LAST:event_BtnCeroActionPerformed
 
     private void BtnUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUnoActionPerformed
-        // TODO add your handling code here:
-        Pantalla.setText(Pantalla.getText()+"1");
+        //Mandamos llamar al la funcion agregarDigito 
+        agregarDigito("1");
     }//GEN-LAST:event_BtnUnoActionPerformed
 
     private void BtnDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDosActionPerformed
-        // TODO add your handling code here:
-        Pantalla.setText(Pantalla.getText()+"2");
+        //Mandamos llamar al la funcion agregarDigito 
+        agregarDigito("2");
     }//GEN-LAST:event_BtnDosActionPerformed
 
     private void BtnTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTresActionPerformed
-        // TODO add your handling code here:
-        Pantalla.setText(Pantalla.getText()+"3");
+        //Mandamos llamar al la funcion agregarDigito 
+        agregarDigito("3");
     }//GEN-LAST:event_BtnTresActionPerformed
 
     private void BtnCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCuatroActionPerformed
-        // TODO add your handling code here:
-        Pantalla.setText(Pantalla.getText()+"4");
+        //Mandamos llamar al la funcion agregarDigito 
+        agregarDigito("4");
     }//GEN-LAST:event_BtnCuatroActionPerformed
 
     private void BtnCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCincoActionPerformed
-        // TODO add your handling code here:
-        Pantalla.setText(Pantalla.getText()+"5");
+        //Mandamos llamar al la funcion agregarDigito 
+        agregarDigito("5");
     }//GEN-LAST:event_BtnCincoActionPerformed
 
     private void BtnSeisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeisActionPerformed
-        // TODO add your handling code here:
-        Pantalla.setText(Pantalla.getText()+"6");
+        //Mandamos llamar al la funcion agregarDigito 
+        agregarDigito("6");
     }//GEN-LAST:event_BtnSeisActionPerformed
 
     private void BtnSieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSieteActionPerformed
-        // TODO add your handling code here:
-        Pantalla.setText(Pantalla.getText()+"7");
+        //Mandamos llamar al la funcion agregarDigito 
+        agregarDigito("7");
     }//GEN-LAST:event_BtnSieteActionPerformed
 
     private void BtnOchoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnOchoActionPerformed
-        // TODO add your handling code here:
-        Pantalla.setText(Pantalla.getText()+"8");
+        //Mandamos llamar al la funcion agregarDigito 
+        agregarDigito("8");
     }//GEN-LAST:event_BtnOchoActionPerformed
 
     private void BtnNueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNueveActionPerformed
-        // TODO add your handling code here:
-        Pantalla.setText(Pantalla.getText()+"9");
+        //Mandamos llamar al la funcion agregarDigito 
+        agregarDigito("9");
     }//GEN-LAST:event_BtnNueveActionPerformed
 
     //funcion que realiza multiplicacion
     private void BtnMultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMultiplicacionActionPerformed
         // TODO add your handling code here:
-        num1=Double.parseDouble(Pantalla.getText());
-        signo="*";
+        num1 = Double.parseDouble(Pantalla.getText());
+        signo = "*";
         Pantalla.setText("");
     }//GEN-LAST:event_BtnMultiplicacionActionPerformed
 
     //funcion que realiza resta
     private void BtnRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRestaActionPerformed
         // TODO add your handling code here:
-        num1=Double.parseDouble(Pantalla.getText());
-        signo="-";
+        num1 = Double.parseDouble(Pantalla.getText());
+        signo = "-";
         Pantalla.setText("");
     }//GEN-LAST:event_BtnRestaActionPerformed
 
     //Funcion para el boton del igual que nos da el resultado
     private void BtnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIgualActionPerformed
-        
+
         //declaracion del segundo numero
-        num2=Double.parseDouble(Pantalla.getText());
+        num2 = Double.parseDouble(Pantalla.getText());
         double resultado, redondeo;
-        
+
         //Realizamos esta condicion para definir la operacion que el usuario selecciono
-        switch(signo){
+        switch (signo) {
             case "+":
-                Pantalla.setText("");
+                //Pantalla.setText("");
                 resultado = num1 + num2;
                 redondeo = Math.round(resultado * 100.0) / 100.0;
-                
+
                 Pantalla.setText(Double.toString(redondeo));
                 break;
-                
+
             case "-":
                 resultado = num1 - num2;
                 redondeo = Math.round(resultado * 100.0) / 100.0;
-                
+
                 Pantalla.setText(Double.toString(redondeo));
                 break;
-                
+
             case "*":
                 resultado = num1 * num2;
                 redondeo = Math.round(resultado * 100.0) / 100.0;
-                
+
                 Pantalla.setText(Double.toString(redondeo));
                 break;
+                
             case "/":
+                Pantalla.setText("");
                 resultado = num1 / num2;
                 redondeo = Math.round(resultado * 100.0) / 100.0;
-                
+
                 Pantalla.setText(Double.toString(redondeo));
                 break;
         }
+        
     }//GEN-LAST:event_BtnIgualActionPerformed
-    
+
     //Funcion para boton del punto decimal
     private void btnPuntoDecimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntoDecimalActionPerformed
-        //Pantalla.setText(Pantalla.getText()+".");
-        
-        String cadena;
-        cadena = Pantalla.getText();
-        
-        if (cadena.length() <= 0){
-            Pantalla.setText("0.");
-        }else{
-            if (!ExistePunto(Pantalla.getText())){
+        // Verificar si ya hay un punto decimal en la pantalla
+        if (!ExistePunto(Pantalla.getText())) {
+            // Verificar si se ha alcanzado el límite de dígitos antes de agregar el punto decimal
+            if (Pantalla.getText().length() < 11) {  // Considerando un punto decimal más 11 dígitos
+                // Agregar el punto decimal a la pantalla
                 Pantalla.setText(Pantalla.getText() + ".");
             }
         }
-        
-        
     }//GEN-LAST:event_btnPuntoDecimalActionPerformed
-    
+
     
     //******************METODOS PARA LOS BOTNOES DE MEMORIA DE LA CALCULADORA******************
     //Método de acción para el botón MR (Memory Recall)
@@ -483,7 +482,7 @@ public class Calcu extends javax.swing.JFrame {
         // Mostrar el valor almacenado en la memoria en la pantalla
         Pantalla.setText(String.valueOf(memoria));
     }//GEN-LAST:event_btnMRActionPerformed
-    
+
     //Método de acción para el botón M- (Memory Minus)
     private void btnMmenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMmenosActionPerformed
         // Restar el valor actual de la pantalla al valor almacenado en la memoria
@@ -508,7 +507,6 @@ public class Calcu extends javax.swing.JFrame {
         memoria += Double.parseDouble(Pantalla.getText());
     }//GEN-LAST:event_btnMmasActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCero;
@@ -537,21 +535,25 @@ public class Calcu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    
+    // Método para agregar dígitos a la pantalla verificando el límite de longitud
+    public void agregarDigito(String digito) {
+        // Verificar si se ha alcanzado el límite de dígitos antes de agregar uno nuevo
+        if (Pantalla.getText().length() < 12) {
+            // Agregar el dígito a la pantalla
+            Pantalla.setText(Pantalla.getText() + digito);
+        }
+    }
+
     //Metodo que nos permite validar que no se repita el punto decimal
     public static boolean ExistePunto(String cadena) {
-        boolean resultado;
-        resultado = false;
         
-        for (int i=0; i<cadena.length(); i++){
-            if (cadena.substring(i, i+1).equals(".")){
-                resultado = true;
-                break;
+        for (int i = 0; i < cadena.length(); i++) {
+            if (cadena.charAt(i) == '.') {
+                return true;
             }
         }
         
-        return resultado;
+        return false;
     }
-    
-    
+
 }
