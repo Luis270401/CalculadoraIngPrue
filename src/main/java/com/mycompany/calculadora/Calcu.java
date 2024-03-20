@@ -10,19 +10,20 @@ public class Calcu extends javax.swing.JFrame {
     double num1, num2;
     double memoria = 0;
     String signo; //Variable para el signo
+    
 
     //Constructor
     public Calcu() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Pantalla = new javax.swing.JLabel();
         BtnLimpiar = new javax.swing.JButton();
         BtnDivision = new javax.swing.JButton();
         BtnMultiplicacion = new javax.swing.JButton();
@@ -45,16 +46,11 @@ public class Calcu extends javax.swing.JFrame {
         btnMC = new javax.swing.JButton();
         btnMS = new javax.swing.JButton();
         btnMmas = new javax.swing.JButton();
+        Pantalla = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
-
-        Pantalla.setBackground(new java.awt.Color(255, 255, 255));
-        Pantalla.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        Pantalla.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        Pantalla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
-        Pantalla.setOpaque(true);
 
         BtnLimpiar.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         BtnLimpiar.setText("C");
@@ -212,6 +208,12 @@ public class Calcu extends javax.swing.JFrame {
             }
         });
 
+        Pantalla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PantallaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -274,8 +276,8 @@ public class Calcu extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Pantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Pantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnDivision, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -482,6 +484,7 @@ public class Calcu extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnPuntoDecimalActionPerformed
+    //******************METODOS PARA RECIBIR TECLADO******************
 
     private void eventosTeclado(){
     KeyListener eventosTeclado = new KeyListener() {
@@ -492,7 +495,7 @@ public class Calcu extends javax.swing.JFrame {
 
         @Override
         public void keyPressed(KeyEvent e) {
-            
+           
         }
 
         @Override
@@ -502,6 +505,8 @@ public class Calcu extends javax.swing.JFrame {
     };
     Pantalla.addKeyListener(eventosTeclado);
     }
+    
+   
     //******************METODOS PARA LOS BOTNOES DE MEMORIA DE LA CALCULADORA******************
     //Método de acción para el botón MR (Memory Recall)
     private void btnMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRActionPerformed
@@ -533,6 +538,10 @@ public class Calcu extends javax.swing.JFrame {
         memoria += Double.parseDouble(Pantalla.getText());
     }//GEN-LAST:event_btnMmasActionPerformed
 
+    private void PantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PantallaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PantallaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCero;
@@ -551,7 +560,7 @@ public class Calcu extends javax.swing.JFrame {
     private javax.swing.JButton BtnSuma;
     private javax.swing.JButton BtnTres;
     private javax.swing.JButton BtnUno;
-    private javax.swing.JLabel Pantalla;
+    private javax.swing.JTextField Pantalla;
     private javax.swing.JButton btnMC;
     private javax.swing.JButton btnMR;
     private javax.swing.JButton btnMS;
