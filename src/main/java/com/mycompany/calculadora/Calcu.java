@@ -1,6 +1,9 @@
 
 package com.mycompany.calculadora;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 public class Calcu extends javax.swing.JFrame {
 
     //declaracion de variables (numeros a sumar )
@@ -454,11 +457,15 @@ public class Calcu extends javax.swing.JFrame {
                 break;
                 
             case "/":
+                
+                if(num2==0){
+                Pantalla.setText("");
+                Pantalla.setText(Pantalla.getText() + "ERROR");}
+                else{
                 Pantalla.setText("");
                 resultado = num1 / num2;
                 redondeo = Math.round(resultado * 100.0) / 100.0;
-
-                Pantalla.setText(Double.toString(redondeo));
+                Pantalla.setText(Double.toString(redondeo));}
                 break;
         }
         
@@ -476,7 +483,25 @@ public class Calcu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnPuntoDecimalActionPerformed
 
-    
+    private void eventosTeclado(){
+    KeyListener eventosTeclado = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            
+        }
+    };
+    Pantalla.addKeyListener(eventosTeclado);
+    }
     //******************METODOS PARA LOS BOTNOES DE MEMORIA DE LA CALCULADORA******************
     //Método de acción para el botón MR (Memory Recall)
     private void btnMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRActionPerformed
